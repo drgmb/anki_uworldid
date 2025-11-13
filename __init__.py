@@ -43,23 +43,28 @@ from aqt.utils import showInfo, tooltip
 #   #AK_Step2_v12::#UWorld::Step::12345
 #   #AK_Step3_v12::#UWorld::Step::12345
 #
-# v11:
-#   #AK_Step1_v11::#UWorld::12345
-#   #AK_Step2_v11::#UWorld::12345
-#   #AK_Step3_v11::#UWorld::12345
+# v11 (novo formato):
+#   #AK_Step1_v11::#UWorld::10000-99999::14000-14999::14993
+#   #AK_Step2_v11::#UWorld::...::...::12345
+#   #AK_Step3_v11::#UWorld::...::...::12345
+#
+# → queremos sempre o ID da **última subtag** (apenas dígitos),
+#   ignorando qualquer quantidade de subtags intermediárias.
 
 STEP_PATTERNS = {
     "step1": [
+        # V12 (fixo)
         re.compile(r"#AK_Step1_v12::#UWorld::Step::(\d+)"),
-        re.compile(r"#AK_Step1_v11::#UWorld::(\d+)"),
+        # V11: prefixo fixo + qualquer número de '::algo::' intermediário + '::<ID>'
+        re.compile(r"#AK_Step1_v11::#UWorld::(?:[^:\s]+::)*(\d+)"),
     ],
     "step2": [
         re.compile(r"#AK_Step2_v12::#UWorld::Step::(\d+)"),
-        re.compile(r"#AK_Step2_v11::#UWorld::(\d+)"),
+        re.compile(r"#AK_Step2_v11::#UWorld::(?:[^:\s]+::)*(\d+)"),
     ],
     "step3": [
         re.compile(r"#AK_Step3_v12::#UWorld::Step::(\d+)"),
-        re.compile(r"#AK_Step3_v11::#UWorld::(\d+)"),
+        re.compile(r"#AK_Step3_v11::#UWorld::(?:[^:\s]+::)*(\d+)"),
     ],
 }
 
