@@ -40,7 +40,7 @@ from aqt.utils import showInfo, tooltip
 # -------------------------
 # v12:
 #   #AK_Step1_v12::#UWorld::Step::12345
-#   #AK_Step2_v12::#UWorld::Step2::12345
+#   #AK_Step2_v12::#UWorld::Step::12345
 #   #AK_Step3_v12::#UWorld::Step::12345
 #
 # v11:
