@@ -21,9 +21,9 @@ This add-on was specifically built to support **both generations** of UWorld tag
 - `#AK_Step3_v12::#UWorld::Step::12345`
 
 ### 🔹 **AnKing v11 format**
-- `#AK_Step1_v11::#UWorld::12345`
-- `#AK_Step2_v11::#UWorld::12345`
-- `#AK_Step3_v11::#UWorld::12345`
+- `#AK_Step1_v11::#UWorld::*::12345`
+- `#AK_Step2_v11::#UWorld::*::12345`
+- `#AK_Step3_v11::#UWorld::*::12345`
 
 Both formats are recognized **simultaneously**, allowing mixed-version decks or migration workflows.
 
@@ -34,9 +34,6 @@ Both formats are recognized **simultaneously**, allowing mixed-version decks or 
 This add-on works **only** on Anki versions that ship with **Qt6**, including:
 
 - **Anki 2.1.55+**
-- **Anki 23.x**
-- **Anki 24.x**
-- **Anki 25.x**
 
 🚫 **Not compatible with Qt5-based Anki (pre-2023)**.
 
