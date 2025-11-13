@@ -1,0 +1,16 @@
+{
+  "name": "Anki→UWorldID",
+  "package": "anki_uworldid",
+  "conflicts": [],
+  "mod": 0,
+  "disabled": false,
+  "min_point_version": 50,
+  "max_point_version": 99,
+  "branch_index": 0,
+  "homepage": "https://github.com/drgmb/anki_uworldid",
+  "author": "drgmb",
+  "version": "1.0.0",
+  "human_version": "1.0.0",
+  "short_description": "Find UWorld Questions IDs from the card tags in your browser.",
+  "update_enabled": true
+}
