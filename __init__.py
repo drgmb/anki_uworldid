@@ -63,7 +63,8 @@ STEP_PATTERNS = {
         re.compile(r"#AK_Step2_v11::#UWorld::(?:[^:\s]+::)*(\d+)"),
     ],
     "step3": [
-        re.compile(r"#AK_Step3_v12::#UWorld::Step::(\d+)"),
+        # V12: mesmo formato do V11, apenas mudando v11 → v12
+        re.compile(r"#AK_Step3_v12::#UWorld::(?:[^:\s]+::)*(\d+)"),
         re.compile(r"#AK_Step3_v11::#UWorld::(?:[^:\s]+::)*(\d+)"),
     ],
 }
