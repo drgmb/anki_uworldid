@@ -302,7 +302,7 @@ class UWorldExtractorDialog(QDialog):
         total_filtered = sum(self.filtered_counts.values()) if self.filtered_counts else 0
         if get_filter_used() and total_filtered > 0:
             info = QLabel(
-                f"<b>{total_filtered} ID(s) already answered have been hidden by the filter.</b>"
+                f"<b>{total_filtered} ID(s) já respondido(s) foram ocultados pelo filtro.</b>"
             )
             info.setStyleSheet("color:#e67e22; padding: 5px 10px;")
             layout.addWidget(info)
@@ -311,12 +311,7 @@ class UWorldExtractorDialog(QDialog):
         layout.addWidget(self._group("Step 2", self.step2_ids))
         layout.addWidget(self._group("Step 3", self.step3_ids))
 
-        # Botão para marcar todos os IDs exibidos como respondidos
-        mark_btn = QPushButton("Marcar IDs exibidos como respondidos")
-        mark_btn.setStyleSheet("padding:8px;background:#2196F3;color:white;font-weight:bold;")
-        mark_btn.clicked.connect(self._mark_all_as_answered)
-        layout.addWidget(mark_btn)
-
+        # Só o botão de fechar agora
         close_btn = QPushButton("Close")
         close_btn.clicked.connect(self.accept)
         layout.addWidget(close_btn)
@@ -367,26 +362,6 @@ class UWorldExtractorDialog(QDialog):
             mw.app.clipboard().setText(",".join(ids))
             tooltip(f"{len(ids)} {step_name} IDs copied to clipboard!")
 
-    def _mark_all_as_answered(self):
-        """Marca todos os IDs exibidos (Step 1/2/3) como respondidos."""
-        existing_ids = get_answered_ids()
-        before_count = len(existing_ids)
-
-        all_ids = set(existing_ids)
-        all_ids.update(self.step1_ids)
-        all_ids.update(self.step2_ids)
-        all_ids.update(self.step3_ids)
-
-        set_answered_ids(all_ids)
-
-        after_ids = get_answered_ids()
-        after_count = len(after_ids)
-        added = after_count - before_count
-
-        if added <= 0:
-            tooltip("No new IDs have been added to the list of respondents.")
-        else:
-            tooltip(f"{added} New ID(s) marked as answered. Total: {after_count}")
 
 
 # =========================================================
