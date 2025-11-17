@@ -61,8 +61,20 @@ from aqt.utils import showInfo, tooltip, askUser
 # Config helpers (arquivo JSON próprio na pasta do add-on)
 # =========================================================
 
-# ID fixo do add-on (nome da pasta em "View Files")
-ADDON_ID = "1480516650"
+def _addon_id() -> str:
+    """Resolve o ID real do add-on em runtime (independente da pasta)."""
+    try:
+        return mw.addonManager.addonFromModule(__name__) or __name__
+    except Exception:
+        return __name__
+
+
+ADDON_ID = _addon_id()
+
+# Nome do arquivo JSON que vai guardar os dados
+CONFIG_FILENAME = "uworld_ids_config.json"
+BACKUP_DIRNAME = "uworld_ids_backups"
+
 
 # Nome do arquivo JSON que vai guardar os dados
 CONFIG_FILENAME = "uworld_ids_config.json"
