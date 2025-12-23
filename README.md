@@ -43,8 +43,7 @@ This add-on works **only** on Anki versions that ship with **Qt6**, including:
 
 Install directly via AnkiWeb:
 
-👉 **AnkiWeb: https://ankiweb.net/shared/info/XXXXXXXX**  
-*(replace with your add-on ID once published)*
+👉 **AnkiWeb: https://ankiweb.net/shared/info/1480516650**  
 
 After installation, restart Anki.
 
